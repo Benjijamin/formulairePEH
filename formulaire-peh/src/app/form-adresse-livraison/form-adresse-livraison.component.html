@@ -1,0 +1,95 @@
+<form class="container bg-light" (ngSubmit)="submit()" [formGroup]="form">
+    <h3 class="mb-3">Adresse Pour la livraison du matériel</h3>
+
+    <h6 class="mb-3">Pour une activité éstivale :</h6>
+
+    <div class="col-md mb-3">
+        <label for="materielEntrepot">
+            <input type="checkbox" id="materielEntrepot" formControlName="materielEntrepot">
+            Vous irez chercher votre matériel aux entrepôts de Communication Marketing Tango inc.<br>
+            11490, boulevard Armand-Bombardier, Montréal, H1E 2W9, tél.: 514-354-5550
+        </label>
+    </div>
+
+    <h6 class="mb-3">Ou</h6>
+
+    <h6 class="mb-3">Définissez le point de service Expédibus en remplissant les champs ci-dessous :</h6>
+
+    <h6 class="col-md mb-3">
+        Tout le matériel (guides, cannes, certificats, etc.) sera livré à l'un des points de service d'EXPÉDIBUS,
+        au minimum 7 jours avant la première date d'activité indiquée.
+    </h6>
+
+    <h6 class="col-md">
+        Veuillez d'abord choisir la région administrative et ensuite la ville du point de service EXPÉDIBUS où sera envoyé le matériel.
+    </h6>
+
+    <div class="col-md mb-3">
+        <label for="regionExpedibus">Region administrative :</label>
+        <select class="form-control" id="regionExpedibus" formControlName="regionExpedibus">
+            <option *ngFor="let r of regions" [value]="r.id">{{r.name}}</option>
+        </select>
+    </div>
+
+    <div class="col-md mb-3">
+        <label for="villeExpedibus">Ville du point de service (EXPÉDIBUS) :</label>
+        <select class="form-control" id="villeExpedibus" formControlName="villeExpedibus">
+            <option *ngFor="let m of municipalites" [value]="m.id"> {{m.name}}</option>
+        </select>
+    </div>
+
+    <div class="col-md mb-3">
+        <label for="pointServiceExpedibus">Point de service (EXPÉDIBUS) :</label>
+        <input type="text" class="form-control" id="pointServiceExpedibus" formControlName="pointServiceExpedibus">
+    </div>
+
+    <div class="col-md mb-3">
+        <label for="adresseExpedibus">Adresse du point de service (EXPÉDIBUS) :</label>
+        <input type="text" class="form-control" id="adresseExpedibus" formControlName="adresseExpedibus">
+    </div>
+
+    <div class="col-md mb-3">
+        <label for="codePostalExpedibus">Code postal du point de service (EXPÉDIBUS) :</label>
+        <input type="text" class="form-control" id="codePostalExpedibus" formControlName="codePostalExpedibus">
+    </div>
+
+    <div class="col-md mb-3">
+        <label for="telephoneExpedibus">Téléphone du point de service (EXPÉDIBUS) :</label>
+        <input type="text" class="form-control" id="telephoneExpedibus" formControlName="telephoneExpedibus">
+    </div>
+
+    <h6 class="mb-3">Pour une activité hivernale (hiver)</h6>
+
+    <div class="col-md mb-3">
+        <label for="adresseOrganisme">
+            <input type="checkbox" id="adresseOrganisme" formControlName="adresseOrganisme">
+            Même adresse que l'organisme
+        </label>
+    </div>
+
+    <h6 class="col-md mb-3">L'adresse ne doit pas être un casier postal.<br>
+    Le matériel vous sera livré environ 2 semaines avant la date d'activité indiquée.
+    Une personne doit être disponible durant les jours ouvrables</h6>
+
+    <div class="col-md mb-3">
+        <label for="adresseHiver">Adresse (no et rue) :</label>
+        <input type="text" class="form-control" id="adresseHiver" formControlName="adresseHiver">
+    </div>
+
+    <div class="col-md mb-3">
+        <label for="villeHiver">Ville :</label>
+        <select class="form-control" id="villeHiver" formControlName="villeHiver">
+            <option *ngFor="let m of municipalites" [value]="m.id">{{m.name}}</option>
+        </select>
+    </div>
+
+    <div class="col-md mb-3">
+        <label for="codePostalHiver">Code postal :</label>
+        <input type="text" class="form-control" formControlName="codePostalHiver">
+    </div>
+
+    <div class="col-md">
+        <button type="button" class="col-md-6 btn btn-primary" (click)="back()">Précedant</button>
+        <button type="submit" class="col-md-6 btn btn-primary">Suivant</button>
+    </div>
+</form>

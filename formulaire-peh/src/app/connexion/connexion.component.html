@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-center align-items-center text-center" style="height: 100vh">
+    <div>
+        <div *ngIf="!isFormNouveau" class="mb-5">
+            <button class="btn btn-lg btn-primary btn-block" (click)="toggleNouveau()" >Remplissez un nouveau formulaire</button>
+        </div>
+
+        <div *ngIf="isFormNouveau" class="mb-5">
+            <form (ngSubmit)="nouveauFormulaire()" [formGroup]="formNouveau">
+                <h1 class="h3 mb-3 font-weight-normal">Votre adresse courriel :</h1>
+                <div class="row">
+                    <input type="text" class="form-control col-md ml-2" formControlName="courriel"> <button type="submit" class="btn btn-primary col-md-2">Ok</button>
+                </div>
+            </form>
+        </div>
+
+        <h1 class="h3 mb-5">Ou</h1>
+
+        <div *ngIf="!isFormExistant">
+            <button class="btn btn-lg btn-primary btn-block" (click)="toggleExistant()">Continuez un formulaire existant</button>
+        </div>
+
+        <div *ngIf="isFormExistant">
+            <form (ngSubmit)="formulaireExistant()" [formGroup]="formExistant">
+                <h1 class="h3 mb-3 font-weight-normal">Entrez votre adresse courriel</h1>
+                <input type="text" class="form-control" formControlName="courriel">
+
+                <h1 class="h3 mb-3 font-weight-normal">Et votre numéro de formulaire</h1>
+                <input type="text" class="form-control" formControlName="numeroForm">
+                <label class="text-danger" *ngIf="formNotFound">L'adresse courriel ou le numéro sont invalides</label>
+                <button class="btn btn-primary mt-3">Confirmer</button>
+            </form>
+        </div>
+        
+    </div>
+</div>

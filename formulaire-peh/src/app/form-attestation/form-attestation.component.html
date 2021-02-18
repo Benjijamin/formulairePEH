@@ -1,0 +1,72 @@
+<form class="container bg-light" (ngSubmit)="submit()" [formGroup]="form">
+    <div class="form-group">
+        <h4>Attestation du promoteur et obligations</h4>
+
+        <p>
+            Au nom et pour le compte de l'organisme promoteur, je déclare :<br/>
+            - que les renseignements fournis dans ce formulaire sont vérédiques;<br/>
+            - avoir pris connaissance des exigences du ou des programmes et m'engage à les respecter en cas d'acceptation de ma demande par la Fondation ou le MFFP;<br/>
+            - que je consens à ce que les informations contenues dans la présente demande, y compris tous les documents joints à la demande, soient transmises à des personnes ou des
+            organismes publics afin de bonifier l'analyse de la demande faite à la Fondation ou au MFFP.
+        </p>
+        <p>
+            En cas d'acceptation de la demande Pêche en herbe, le promoteur s'engage à :<br/>
+            - remettre gratuitement l'équipement de pêche, le matériel d'éducation et le certificat aux nouveaux initiés;<br/>
+            - afficher la bannière Pêche en herbe et de son commanditaire;<br/>
+            - donner une formation aux nouveaux pêcheurs;<br/>
+            - mettre en place les mesures nécessaires à la securité des participants et à dégager la Fondation de toute responsabilité relative aux dommages corporels ou matériels
+            subis par le promoteur, ses représentants, ses employés, ses mandataires, bénévoles ou non, ou toute autre personne au cours de la journée d'initiation à la pêche ainsi 
+            que tout dommage résultant ou découlant de l'activité de pêche au cours de cette journée;<br/>
+            - fournir à la Fondation une preuve d'assurance responsabilité couvrant les risques inhérents à cette activité et à l'entreposage du matériel;<br/>
+            - agir en toute indépendance. En aucun cas, le promoteur, ses employés et ses mandataires, bénévoles ou non, ne peuvent être considerés comme employés ou mandataires 
+            de la Fondation;<br/>
+            - remettre à la Fondation les coordonnées des jeunes participants et un rapport final des activités et retourner le matériel non utilisé. 
+        </p>
+        <p>
+            Je conviens que la soummission de la demande par inscription de mes nom et prénom fait acte de signature électronique et j'accepte les obligations décrites ci-dessus au
+            nom et pour le compte de l'organisme promoteur que je représente.
+        </p>
+
+        <div class="container mb-3">
+            <div class="row justify-content-md-center">
+                <div class="col col-md-2">
+                    <label for="signatureOui">
+                        <input
+                        type="radio"
+                        id="signatureOui"
+                        formControlName="signature"
+                        [value]="true"
+                        required/>
+                        J'accepte
+                    </label>
+                </div>
+                
+                <div class="col col-md-2">
+                    <label for="signatureNon">
+                        <input
+                        type="radio"
+                        id="signatureNon"
+                        formControlName="signature"
+                        [value]="false"
+                        required/>
+                        Je refuse
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3 col-md">
+            <label for="signatureNom">Nom de la personne responsable</label>
+            <input
+            type="text"
+            class="form-control"
+            id="signatureNom"
+            formControlName="signatureNom"
+            required/>
+        </div>
+    </div>
+    <div class="col-md">
+        <button type="button" class="col-md-6 btn btn-primary" (click)="back()">Précedant</button>
+        <button type="submit" class="col-md-6 btn" [className]="form.valid ? 'col-md-3 btn btn-primary' : 'col-md-3 btn btn-outline-primary' " [disabled]="form.invalid">Soumettre</button>
+    </div>
+</form>

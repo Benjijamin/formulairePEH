@@ -1,0 +1,117 @@
+  <form class="container bg-light" (ngSubmit)="submit()" [formGroup]="form">
+    <div class="form-group">
+        <h4>Choix d'activité d'initiation à la pêche (vous pouvez choisir l'une ou l'autre, ou les deux) :</h4>
+
+        <div class="d-flex justify-content-around" formGroupName="checkGroup">
+            <div class="container bg-secondary text-light boxcheck">
+                <label for="isPEH" class="text-center"> Pêche en herbe Fondation de la faune du Québec (FFQ) </label>
+                <div class="d-flex justify-content-center">
+                    <input type="checkbox" class="check-peh" id="isPEH" formControlName="isPEH"/>
+                </div>
+            </div>
+            
+            <div class="container bg-secondary text-light boxcheck">
+                <label for="isPSELCE"> Programme de soutien pour l'ensemencement des lacs et des cours d'eau (PSELCE) Ministere des Forets, de la Faune et des Parcs (MFFP)</label>
+                <div class="d-flex justify-content-center">
+                    <input type="checkbox" class="check-peh" id="isPSELCE" formControlName="isPSELCE" />
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-around">
+            <div class="container bg-secondary text-light boxcheck-saison">
+                <label for="isEte"><input type="checkbox" id="isEte" name="isEte" formControlName="isEte"/> Été</label>
+            </div>
+            <div class="container bg-secondary text-light boxcheck-saison">
+                <label for="isHiver"><input type="checkbox" id="isHiver" name="isHiver" formControlName="isHiver"/> Hiver (pêche sur glace)</label>
+            </div>
+        </div>
+
+        <h4>Période de pêche :</h4>
+        <div class="row col-md-12">
+        </div>
+        <h4>Renseignements sur l'organisme demandeur :</h4>
+        <div class="mb-3 col-md-12">
+            <label for="nomOrganisme" class="form-label">Nom de l'organisme :</label> 
+            <input type="text" class="form-control" id="nomOrganisme" name="nomOrganisme" formControlName="nomOrganisme" maxlength="100" required/>
+        </div>
+        <div class="row col-md-12">
+            <div class="mb-3 col-md-5">
+                <label for="adresse" class="form-label">Adresse (Nº et rue) :</label> 
+                <input type="text" class="form-control" id="adresse" name="adresse" formControlName="adresse" maxlength="100" required/>
+            </div>
+            <div class="mb-3 col-md-3">
+                <label for="ville" class="form-label">Municipalité :</label> 
+                <select class="form-control" id="ville" name="ville" formControlName="ville" required>
+                    <option *ngFor="let m of municipalites" [value]="m.id"> {{m.name}}</option>
+                </select>
+            </div>
+            <div class="mb-3 col-md-2">
+                <label for="codePostal" class="form-label">Code postal :</label> 
+                <input type="text" class="form-control" id="codePostal" name="codePostal" formControlName="codePostal" maxlength="10" required/>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <label for="salutation" class="form-label">Nom de la personne responsable :</label>
+            <div class="row">
+                <div class="col-md-3 mb-3 radio">
+                    <label for="checkHomme">
+                        <input type="radio" name="salutation" id="checkHomme" formControlName="salutation" [value]="true" required/> Monsieur
+                    </label>
+                </div>
+                <div class="col-md-3 mb-3 radio">
+                    <label for="checkFemme">
+                        <input type="radio" name="salutation" id="checkFemme" formControlName="salutation" [value]="false" required/> Madame
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row col-md-8">
+            <div class="col-md-6 mb-3">
+                <label class="form-label" for="prenom">Prénom :</label>
+                <input type="text" class="form-control" id="prenom" name="prenom" formControlName="prenom" maxlength="50" required/>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label" for="nom">Nom :</label>
+                <input type="text" class="form-control" id="nom" name="nom" formControlName="nom" maxlength="50" required/>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label" for="titre">Titre responsable :</label>
+            <input type="text" class="form-control" id="titre" name="titre" formControlName="titre" maxlength="50" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label" for="telResidence">Nº téléphone résidence :</label>
+            <input type="text" class="form-control" id="telResidence" name="telResidence" formControlName="telResidence" maxlength="20" required>
+        </div>
+        <div class="col-md-12 row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label" for="telTravail">Nº téléphone travail :</label>
+                <input type="text" class="form-control" id="telTravail" name="telTravail" formControlName="telTravail" maxlength="20" required>
+            </div>
+            <div class="col-md-2 mb-3">
+                <label class="form-label" for="telTravailPoste">Poste</label>
+                <input type="text" class="form-control" id="telTravailPoste" name="telTravailPoste" formControlName="telTravailPoste" maxlength="15" required>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label" for="telMobile">Nº téléphone mobile :</label>
+            <input type="text" class="form-control" id="telMobile" name="telMobile" formControlName="telMobile" maxlength="20" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label" for="courriel">Courrier électronique :</label>
+            <input type="text" class="form-control" id="courriel" name="courriel" formControlName="courriel" [email]="true" maxlength="50" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label" for="NEQ">Numéro d'entreprise du Québec(NEQ) :</label>
+            <input type="text" class="form-control" id="NEQ" name="NEQ" formControlName="NEQ" maxlength="15" required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label class="form-label" for="TVQ">Numéro de taxe de vente du Québec (TVQ) :</label>
+            <input type="text" class="form-control" id="TVQ" name="TVQ" formControlName="TVQ" maxlength="15" required>
+        </div>
+    </div>
+    <div class="col-md">
+        <button type="button" class="col-md-6 btn btn-primary" (click)="back()">Précedant</button>
+        <button type="submit" class="col-md-6 btn" [className]="form.valid ? 'col-md-3 btn btn-primary' : 'col-md-3 btn btn-outline-primary' " [disabled]="form.invalid">Suivant</button>
+    </div>
+  </form>  

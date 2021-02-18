@@ -1,0 +1,107 @@
+<form class="container bg-light" (ngSubmit)="submit()" [formGroup]="form">
+    <div class="form-group">
+        <h4>Partenaires</h4>
+
+        <div class="col-md">
+            <label class="form-label">Avez vous des partenaires pour votre projet?</label>
+
+            <div class="row">
+                <div class="col-md-2 mb-3 radio">
+                    <label for="checkOui">
+                        <input 
+                        type="radio" 
+                        id="checkOui" 
+                        formControlName="partenaires" 
+                        [value]="true" 
+                        required/> Oui
+                    </label>
+                </div>
+
+                <div class="col-md-2 mb-3 radio">
+                    <label for="checkNon">
+                        <input 
+                        type="radio" 
+                        id="checkNon" 
+                        formControlName="partenaires" 
+                        [value]="false" 
+                        required/> Non
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="form.controls.partenaires.value" class="mb-3 col-md">
+            <label for="engagementPartenaires">Si oui, Nommez-les et précisez leur engagement 
+                (Contributions financières, services, bénévolat, etc.) (max. 1000 caractères)</label>
+            <textarea
+            class="form-control"
+            rows="10"
+            id="engagementPartenaires"
+            formControlName="engagementPartenaires"
+            required>
+            </textarea>
+        </div>
+
+        <h4>Liste des pièces à joindre à cette demande (En pièces joints à votre courriel d'envoi)</h4>
+
+        <div class="mb-3 col-md">
+            <h6>Cochez les documents obligatoires joints à la demande</h6>
+                <div class="mb-3">
+                    <label>
+                        Copie des lettres patentes ou du document confirmant l'existence juridique de l'organisme <b>(Format PDF)</b> :
+                    </label>
+                    <label *ngIf="lettresPatentesRecieved" class="text-success">Dernière version du document a été recue</label>
+                    
+                    <div>
+                        <input type="file" (change)="lettresPatentes($event)">
+                    </div>
+                </div>
+                 
+                <div>
+                    <label>
+                        Résolution désignant la personne autorisée à agir au nom de l'organisme pour ce projet <b>(Format PDF)</b> :
+                    </label>
+                    <label *ngIf="resolutionRecieved" class="text-success">Dernière version du document a été recue</label>
+                    <div>
+                        <input type="file" (change)="resolution($event)">
+                    </div>
+                </div>
+        </div>
+
+        <div class="mb-3 col-md">
+            <h6>Pour le programme Pêche en herbe</h6>
+            
+            <div>
+                <label for="couvertureAssurance">
+                    <input
+                    type="checkbox"
+                    id="couvertureAssurance"
+                    formControlName="couvertureAssurance"
+                    required/>
+                    Confirmation d'une couverture d'assurance responsabilité couvrant les risques 
+                    inhérents à la pratique de l'activité de la pêche
+                </label>
+            </div>
+        </div>
+
+        <div class="mb-3 col-md">
+            <h6>Pour le Programme de soutien pour l'ensemencement des lacs et des cours d'eau (PSELCE)</h6>
+
+            <div>
+                <label for="attestationPSELCE">
+                    <input
+                    type="checkbox"
+                    id="attestationPSELCE"
+                    formControlName="attestationPSELCE"
+                    required/>
+                    Attestation confirmant que le plan d'eau est accessible gratuitement pour la pêche à gué
+                    durant l'integralité de la saison de pêche de l'espèce introduite
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md">
+        <button type="button" class="col-md-6 btn btn-primary" (click)="back()">Précedant</button>
+        <button type="submit" class="col-md-6 btn btn-primary">Suivant</button>
+    </div>
+</form>

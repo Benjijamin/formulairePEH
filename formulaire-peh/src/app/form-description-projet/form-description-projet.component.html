@@ -1,0 +1,427 @@
+<form class="container bg-light" (ngSubmit)="submit()" [formGroup]="form">
+    <h3>Description du projet d'initiation à la pêche</h3>
+    <div class="form-group">
+            <h4>Site de pêche</h4>
+
+            <div class="mb-3 col-md">
+                <label for="nomPlanEau" class="form-label">Nom du plan d'eau</label>
+                <input 
+                type="text" 
+                class="form-control" 
+                id="nomPlanEau" 
+                formControlName="nomPlanEau" 
+                />
+            </div>
+            
+            <div class="col-md-8">
+                <label for="typePlanEau" class="form-label">Le plan d'eau est un :</label>
+                <div class="row">
+                    <div class="col-md-3 mb-3 radio">
+                        <label for="checkCoursEau">
+                            <input 
+                            type="radio" 
+                            id="checkCoursEau" 
+                            formControlName="typePlanEau" 
+                            [value]="true" 
+                            /> Cours d'eau
+                        </label>
+                    </div>
+                    <div class="col-md-3 mb-3 radio">
+                        <label for="checkLac">
+                            <input 
+                            type="radio" 
+                            id="checkLac" 
+                            formControlName="typePlanEau" 
+                            [value]="false" 
+                            /> Lac
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row col-md">
+                <div class="mb-3 col-md-3">
+                    <label for="ville" class="form-label">Municipalité / Ville :</label> 
+                    <select class="form-control" id="ville" formControlName="ville" >
+                        <option *ngFor="let m of municipalites" [value]="m.id"> {{m.name}} </option>
+                    </select>
+                </div>
+
+                <div class="mb-3 col-md-3">
+                    <label for="region" class="form-label">Région administrative :</label>
+                    <select class="form-control" id="region" formControlName="region" >
+                        <option *ngFor="let r of regions" [value]="r.id"> {{r.name}} </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="especePoisson" class="form-label">Espèce de poisson pêchée :</label>
+                <input 
+                type="text" 
+                class="form-control" 
+                id="especePoisson" 
+                formControlName="especePoisson" 
+                />
+            </div>
+            
+            <h4>Dates et clientèle visée</h4>
+
+            <div class="mb-3 col-md-3">
+                <label for="dateActivite">Date de l'activité</label>
+                <input 
+                type="date" 
+                class="form-control" 
+                id="dateActivite"
+                formControlName="dateActivite"
+                />
+            </div>
+
+            <h6 class="mb-3 col-md">Autres dates de l'activité ou périodes s'il y a lieu :</h6>
+
+            <div class="row col-md">
+                <div class="mb-3 col-md-3">
+                    <label for="autreDate1">Date :</label>
+                    <input 
+                    type="date" 
+                    class="form-control"
+                    id="autreDate1"
+                    formControlName="autreDate1"/>
+                </div>
+                
+                <div class="mb-3 col-md-3">
+                    <label for="autreDate2">Date :</label>
+                    <input
+                    type="date"
+                    class="form-control"
+                    id="autreDate2"
+                    formControlName="autreDate2"/>
+                </div>
+                
+                <div class="mb-3 col-md-3">
+                    <label for="autreDate3">Date :</label>
+                    <input
+                    type="date"
+                    class="form-control"
+                    id="autreDate3"
+                    formControlName="autreDate3"/>
+                </div>
+            </div>
+
+            <div class="row col-md">
+                <div class="mb-3 col-md-3">
+                    <label for="dateDu">Du :</label>
+                    <input
+                    type="date"
+                    class="form-control"
+                    id="dateDu"
+                    formControlName="dateDu"/>
+                </div>
+                <div class="mb-3 col-md-3">
+                    <label for="dateAu">Au :</label>
+                    <input
+                    type="date"
+                    class="form-control"
+                    id="dateAu"
+                    formControlName="dateAu"/>
+                </div>
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="nbrJeunesVises">Nombre total de jeunes visés :</label>
+                <input
+                type="number"
+                class="form-control"
+                id="nbrJeunesVises"
+                formControlName="nbrJeunesVises"
+                />
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="nbrNouveauxAdeptes">Nombre de nouveaux adeptes (qui recevront un permis Pêche en herbe) :</label>
+                <input
+                type="number"
+                class="form-control"
+                id="nbrNouveauxAdeptes"
+                formControlName="nbrNouveauxAdeptes"
+                />
+            </div>
+
+            <div class="col-md">
+                <label>Âge des nouveaux adeptes :</label>
+                <div class="row col-md">
+                    <div class="mb-3 col-md-2 form-control">
+                        <label for="check6a8ans">
+                            <input
+                            type="checkbox"
+                            id="check6a8ans"
+                            formControlName="jeunes6a8ans"
+                            />
+                            6 à 8 ans
+                        </label>
+                    </div>
+
+                    <div class="mb-3 col-md-2 form-control">
+                        <label for="check9a12ans">
+                            <input
+                            type="checkbox"
+                            id="check9a12ans"
+                            formControlName="jeunes9a12ans"
+                            />
+                            9 à 12 ans
+                        </label>
+                    </div>
+
+                    <div class="mb-3 col-md-2 form-control">
+                        <label for="check13a17ans">
+                            <input
+                            type="checkbox"
+                            id="check13a17ans"
+                            formControlName="jeunes13a17ans"
+                            />
+                            13 à 17 ans
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md">
+                <div class="mb-3 col-md-6 form-control">
+                    <label for="milieuUrbain">
+                        <input
+                        type="checkbox"
+                        id="milieuUrbain"
+                        formControlName="milieuUrbain"
+                        />
+                        Volet milieu urbain (1 000 jeunes et +)
+                    </label>
+                </div>
+            </div>
+
+            <div class="mb-3 col-md">
+                <label>Provenance des jeunes : </label>
+                <div class="row col-md">
+                    <div class="form-control col-md-3">
+                        <label for="provenancePlus30000">
+                            <input
+                            type="checkbox"
+                            id="provenancePlus30000"
+                            formControlName="provenancePlus30000"
+                            />
+                            Municipalité &gt; 30 000
+                        </label>
+                    </div>
+
+                    <div class="form-control col-md-3">
+                        <label for="provenanceMoins30000">
+                            <input
+                            type="checkbox"
+                            id="provenanceMoins30000"
+                            formControlName="provenanceMoins30000"
+                            />
+                            Municipalité &lt; 30 000
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="provenanceMunicipalites">Nommez les principales municipalités d'oû proviennent les jeunes</label>
+                <input
+                type="text"
+                class="form-control"
+                id="provenanceMunicipalites"
+                formControlName="provenanceMunicipalites"
+                />
+            </div>
+
+            <div class="mb-3 col-md">
+                <h6>Structure du groupe :</h6> 
+                <div class="column">
+                    <div>
+                        <label for="structureGratuitPublic">
+                            <input
+                            type="checkbox"
+                            id="structureGratuitPublic"
+                            formControlName="structureGratuitPublic"
+                            />
+                            Ouvert gratuitement au public (inscription individuelle)
+                        </label>
+                    </div>
+
+                    <div>
+                        <label for="structureCampVacances">
+                            <input
+                            type="checkbox"
+                            id="structureCampVacances"
+                            formControlName="structureCampVacances"
+                            />
+                            Camp de vacances
+                        </label>
+                    </div>
+
+                    <div>
+                        <label for="structureClasseScolaire">
+                            <input
+                            type="checkbox"
+                            id="structureClasseScolaire"
+                            formControlName="structureClasseScolaire"
+                            required/>
+                            Classe scolaire
+                        </label>
+                    </div>
+
+                    <div>
+                        <label for="structureGroupeScout">
+                            <input
+                            type="checkbox"
+                            id="structureGroupeScout"
+                            formControlName="structureGroupeScout"
+                            />
+                            Groupe scout
+                        </label>
+                    </div>
+
+                    <div>
+                        <div class="row col-md">
+                            <label for="structureAutre">
+                                <input
+                                type="checkbox"
+                                id="structureAutre"
+                                formControlName="structureAutre"
+                                />
+                                Autre, précisez
+                            </label>
+
+                            <input *ngIf="form.controls.structureAutre.value"
+                            type="text"
+                            class="form-control"
+                            id="structureAutreDescr"
+                            formControlName="structureAutreDescr"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="telDiffusion">No de téléphone à diffuser (si activité offerte au public)</label>
+                <input
+                type="text"
+                class="form-control"
+                id="telDiffusion"
+                formControlName="telDiffusion"/>
+            </div>
+
+
+            <h4>Activités prévues dans le programme de votre journée</h4>
+
+            <div class="mb-3 col-md">
+                <label for="descrFormation">Décrivez la formation offerte aux jeunes 
+                    (Enseignement des notions connexes à la pêche, dont la biologie et l'habitat du poisson, 
+                    les techniques de la pêche, la réglementation, la securité, l'éthique du pêcheur, etc.) (max. 2000 lettres)
+                </label>
+                <textarea 
+                class="form-control"
+                rows="10"
+                id="descrFormation"
+                formControlName="descrFormation"
+                ></textarea>
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="descrCompetences">Présentez les compétences des personnes responsables de la formation (spécialiste des poissons,
+                    biologiste, pêcheur expérimenté, agent de protection de la faune, etc.) (max. 1000 lettres)</label>
+                <textarea
+                class="form-control"
+                rows="10"
+                id="descrCompetences"
+                formControlName="descrCompetences"
+                ></textarea>
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="descrJournee">Décrivez le déroulement de la journée (max. 2500 lettres)</label>
+                <textarea
+                class="form-control"
+                rows="10"
+                id="descrJournee"
+                formControlName="descrJournee"
+                ></textarea>
+            </div>
+
+            <h4>Encadrement lors de l'activité</h4>
+
+            <div class="mb-3 col-md">
+                <label for="nbrAdultesSurPlace">Nombre d'adultes qui seront sur place lors de l'activité :</label>
+                <input
+                type="number"
+                class="form-control"
+                id="nbrAdultesSurPlace"
+                formControlName="nbrAdultesSurPlace"
+                />
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="competencesAdultes">Compétences et expérience des adultes (max. 1000 lettres)</label>
+                <textarea
+                class="form-control"
+                rows="10"
+                id="competencesAdultes"
+                formControlName="competencesAdultes"
+                ></textarea>
+            </div>
+
+            <div class="mb-3 col-md">
+                <h6>Mesures de securité obligatoires :</h6>
+                <div class="column">
+                    <div>
+                        <label for="equipementPremierSoins">
+                            <input
+                            type="checkbox"
+                            id="equipementPremierSoins"
+                            formControlName="equipementPremierSoins"
+                            />
+                            Équipement de premier soins
+                        </label>
+                    </div>
+
+                    <div>
+                        <label for="vesteFlottaison">
+                            <input
+                            type="checkbox"
+                            id="vesteFlottaison"
+                            formControlName="vesteFlottaison"
+                            />
+                            Veste de flottaison pour chaque jeune en embarcation
+                        </label>
+                    </div>
+
+                    <div>
+                        <label for="supervisionConstante">
+                            <input
+                            type="checkbox"
+                            id="supervisionConstante"
+                            formControlName="supervisionConstante"
+                            />
+                            Supervision constante des jeunes près des plans d'eau ou des cours d'eau
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="descrMesuresSecurite">Mesures de securité supplémentaires (max. 1000 lettres)</label>
+                <textarea
+                class="form-control"
+                rows="10"
+                id="descrMesuresSecurite"
+                formControlName="descrMesuresSecurite"
+                ></textarea>
+            </div>
+
+            <div class="col-md">
+                <button type="button" class="col-md-6 btn btn-primary" (click)="back()">Précedant</button>
+                <button type="submit" class="col-md-6 btn btn-primary">Suivant</button>
+            </div>
+    </div>
+</form>

@@ -1,0 +1,258 @@
+<form class="container bg-light" (ngSubmit)="submit()" [formGroup]="form">
+    <h4>Aide financière pour l'ensemencement</h4>
+
+    <h5>Forme d'aide souhaitée (choisissez l'une des trois formes d'aide : poissons, argent ou peu importe, ainsi que l'espèce) :</h5>
+    
+    <div class="row col-md mt-3">
+        <div class="col-md">
+            <div class="mb-3 col-md">
+                <label for="poisson">
+                    <input type="checkbox" id="poisson" formControlName="poisson">
+                Poisson</label>
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="poissonOmbleFontaine">
+                    <input type="checkbox" id="poissonOmbleFontaine" formControlName="poissonOmbleFontaine">
+                Poisson Omble Fontaine</label>
+            </div>
+        </div>
+        
+        <div class="col-md">
+            <div class="mb-3 col-md">
+                <label for="argent">
+                    <input type="checkbox" id="argent" formControlName="argent">
+                Argent</label>
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="argentOmbleFontaine">
+                    <input type="checkbox" id="argentOmbleFontaine" formControlName="argentOmbleFontaine">
+                Argent Omble Fontaine</label>
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="argentTruiteBrune">
+                    <input type="checkbox" id="argentTruiteBrune" formControlName="argentTruiteBrune">
+                Argent Truite Brune</label>
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="argentTruiteArcEnCiel">
+                    <input type="checkbox" id="argentTruiteArcEnCiel" formControlName="argentTruiteArcEnCiel">
+                Argent Truite Arc-en-ciel</label>
+            </div>
+        </div>
+
+        <div class="col-md">
+            <div class="mb-3 col-md">
+                <label for="peuImporte">
+                    <input type="checkbox" id="peuImporte" formControlName="peuImporte">
+                Peu Importe</label>
+            </div>
+
+            <div class="mb-3 col-md">
+                <label for="peuImporteOmbleFontaine">
+                    <input type="checkbox" id="peuImporteOmbleFontaine" formControlName="peuImporteOmbleFontaine">
+                Peu Importe Omble Fontaine</label>
+            </div>
+        </div>
+    </div>
+
+    <h5>Date ou dates d'ensemencement prévues (indiquez toutes les dates prévues)</h5>
+
+    <div class="mb-3 col-md">
+        <label for="feteDeLaPeche">
+        <input type="checkbox" id="feteDeLaPeche" formControlName="feteDeLaPeche">
+        En fonction de la Fete de la peche</label>
+    </div>
+
+    <div class="row col-md">
+        <div class="mb-3 col-md">
+            <label for="date1">Date 1 </label>
+            <input type="date" class="form-control" id="date1" formControlName="date1">
+        </div>
+        
+        <div class="mb-3 col-md">
+            <label for="date2">Date 2</label>
+            <input type="date" class="form-control" id="date2" formControlName="date2">
+        </div>
+
+        <div class="mb-3 col-md">
+            <label for="date3">Date 3</label>
+            <input type="date" class="form-control" id="date3" formControlName="date3">
+        </div>
+    </div>
+
+    <h5>Autres dates de l'activité ou périodes</h5>
+
+    <div class="row col-md">
+        <div class="mb-3 col-md">
+            <label for="autreDate1">Date 1</label>
+            <input type="date" class="form-control" id="autreDate1" formControlName="autreDate1">
+        </div>
+
+        <div class="mb-3 col-md">
+            <label for="autreDate2">Date 2</label>
+            <input type="date" class="form-control" id="autreDate2" formControlName="autreDate2">
+        </div>
+
+        <div class="mb-3 col-md">
+            <label for="autreDate3">Date 3</label>
+            <input type="date" class="form-control" id="autreDate3" formControlName="autreDate3">
+        </div>
+    </div>
+
+    <h6>1ère Période</h6>
+
+    <div class="row col-md">
+        <div class="mb-3 col-md">
+            <label for="dateDu1">Du</label>
+            <input type="date" class="form-control" id="dateDu1" formControlName="dateDu1">
+        </div>
+
+        <div class="mb-3 col-md">
+            <label for="dateAu1">Au</label>
+            <input type="date" class="form-control" id="dateAu1" formControlName="dateAu1">
+        </div>
+    </div>
+
+    <h6>2ème Période</h6>
+
+    <div class="row col-md">
+        <div class="mb-3 col-md">
+            <label for="dateDu2">Du</label>
+            <input type="date" class="form-control" id="dateDu2" formControlName="dateDu2">
+        </div>
+
+        <div class="mb-3 col-md">
+            <label for="dateAu2">Au</label>
+            <input type="date" class="form-control" id="dateAu2" formControlName="dateAu2">
+        </div>
+    </div>
+
+    <h5>Réglementation et tarification municipales pour les pêcheurs (Indiquez les tarifs s'il y a lieu) pour l'utilisation des équipements suivants 
+        (Section à remplir obligatoirement à moins qu'aucune de ces installations ne se trouve au plan d'eau visé)</h5>
+
+    <div class="row col-md">
+        <div class="col-md-3 mb-3"></div>
+        
+        <h6 class="col-md-3 mb-3 text-center">Rampe de mise à l'eau</h6>
+        
+        <h6 class="col-md-3 mb-3 text-center">Station de lavage</h6>
+
+        <h6 class="col-md-3 mb-3 text-center">Stationnement</h6>
+    </div>
+
+    <div class="row col-md">
+        <h6 class="col-md-3 mb-3">Ponctuel résident :</h6>
+
+        <div class="mb-3 col-md-3">
+            <input type="number" class="form-control" id="rampePonctuelResident" formControlName="rampePonctuelResident">
+        </div>
+        
+        <div class="mb-3 col-md-3">
+            <input type="number" class="form-control" id="stationPonctuelResident" formControlName="stationPonctuelResident">
+        </div>
+        
+        <div class="mb-3 col-md-3">
+            <input type="number" class="form-control" id="stationnementPonctuelResident" formControlName="stationnementPonctuelResident">
+        </div>
+    </div>
+
+    <div class="row col-md">
+        <h6 class="col-md-3 mb-3">Ponctuel non-résident :</h6>
+
+        <div class="mb-3 col-md-3">
+            <input type="number" class="form-control" id="rampePonctuelNonResident" formControlName="rampePonctuelNonResident">
+        </div>
+
+        <div class="mb-3 col-md-3">
+            <input type="number" class="form-control" id="stationPonctuelNonResident" formControlName="stationPonctuelNonResident">
+        </div>
+
+        <div class="mb-3 col-md-3">
+            <input type="number" class="form-control" id="stationnementPonctuelNonResident" formControlName="stationnementPonctuelNonResident">
+        </div>
+    </div>
+
+    <div class="row col-md">
+        <h6 class="col-md-3 mb-3">Saisonnier résident :</h6>
+
+        <div class="mb-3 col-md-3">
+            <input type="number" class="form-control" id="rampePonctuelNonResident" formControlName="rampeSaisonnierResident">
+        </div>
+        
+        <div class="mb-3 col-md">
+            <input type="number" class="form-control" id="stationSaisonnierResident" formControlName="stationSaisonnierResident">
+        </div>
+
+        <div class="mb-3 col-md">
+            <input type="number" class="form-control" id="stationnementSaisonnierResident" formControlName="stationnementSaisonnierResident">
+        </div>
+    </div>
+
+    <div class="row col-md">
+        <h6 class="col-md-3 mb-3">Saisonnier non-résident :</h6>
+
+        <div class="mb-3 col-md-3">
+            <input type="number" class="form-control" id="rampeSaisonnierNonResident" formControlName="rampeSaisonnierNonResident">
+        </div>
+
+        <div class="mb-3 col-md">
+            <input type="number" class="form-control" id="stationSaisonnierNonResident" formControlName="stationSaisonnierNonResident">
+        </div>
+
+        <div class="mb-3 col-md">
+            <input type="number" class="form-control" id="stationnementSaisonnierNonResident" formControlName="stationnementSaisonnierNonResident">
+        </div>
+    </div>
+
+    <div class="mb-3 col-md">
+        <label for="commentaireTarification">Commentaire tarification</label>
+        <input type="text" class="form-control" id="commentaireTarification" formControlName="commentaireTarification">
+    </div>
+
+    <h5>Le site de pêche est-il desservi par un réseau de transport public ?</h5>
+
+    <div class="col-md">
+        <label for="transportPublic">
+        <input type="checkbox" id="transportPublic" formControlName="transportPublic">
+        Transport public</label>
+    </div>
+
+    <div *ngIf="form.controls.transportPublic.value" class="mb-3 col-md">
+        <label for="transportPublicDescr">Si oui, nommez-le :</label>
+        <input type="text" class="form-control" id="transportPublicDescr" formControlName="transportPublicDescr">
+    </div>
+
+    <h5>Existe-t-il des services d'accès pour les personnes à mobilité réduite ?</h5>
+
+    <div class="col-md">
+        <label for="servicesAcces">
+        <input type="checkbox" id="servicesAcces" formControlName="servicesAcces">
+        Services d'accès</label>
+    </div>
+
+    <div *ngIf="form.controls.servicesAcces.value" class="mb-3 col-md">
+        <label for="servicesAccesDescr">Si oui, nommez-les :</label>
+        <input type="text" class="form-control" id="servicesAccesDescr" formControlName="servicesAccesDescr">
+    </div>
+
+    <h5>Calcul du partage des coûts :</h5>
+
+    <div class="mb-3 col-md">
+        <label for="contributionOrganisme">Contribution organisme</label>
+        <input type="number" class="form-control" id="contributionOrganisme" formControlName="contributionOrganisme">
+    </div>
+
+    <div class="mb-3 col-md">
+        <label for="contributionPSELCE">Contribution PSELCE</label>
+        <input type="number" class="form-control" id="contributionPSELCE" formControlName="contributionPSELCE">
+    </div>
+
+    <div class="col-md">
+        <button type="button" class="col-md-6 btn btn-primary" (click)="back()">Précedant</button>
+        <button type="submit" class="col-md-6 btn btn-primary">Suivant</button>
+    </div>
+</form>

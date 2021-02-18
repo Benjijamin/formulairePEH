@@ -1,0 +1,103 @@
+<form class="container bg-light" (ngSubmit)="submit()" [formGroup]="form">
+
+    <h3>Autres activité d'initiation à la pêche destinée aux nouveaux pêcheurs s'il y a lieu</h3>
+
+    <div class="col-md-3 mb-3">
+        <label for="dateActivite">Date activité</label>
+        <input type="date" class="form-control" id="dateActivite" formControlName="dateActivite">
+    </div>
+
+    <h6>Autres dates ou périodes</h6>
+
+    <div class="row col-md">
+        <div class="col-md-3 mb-3">
+            <label for="autreDate1">Date 1</label>
+            <input type="date" class="form-control" id="autreDate1" formControlName="autreDate1">
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <label for="autreDate2">Date 2</label>
+            <input type="date" class="form-control" id="autreDate2" formControlName="autreDate2">
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <label for="autreDate3">Date 3</label>
+            <input type="date" class="form-control" id="autreDate3" formControlName="autreDate3">
+        </div>
+    </div>
+
+    <div class="row col-md">
+        <div class="col-md-3 mb-3">
+            <label for="dateDu">Du</label>
+            <input type="date" class="form-control" id="dateDu" formControlName="dateDu">
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <label for="dateDu">Au</label>
+            <input type="date" class="form-control" id="dateAu" formControlName="dateAu">
+        </div>
+    </div>
+
+    <h5>Clientèle</h5>
+
+    <div class="col-md mb-3">
+        <label for="clientele6a18">
+            <input type="checkbox" id="clientele6a18" formControlName="clientele6a18">
+            6 a 18 ans
+        </label>
+    </div>
+
+    <div class="col-md mb-3">
+        <label for="clienteleAdulte">
+            <input type="checkbox" id="clienteleAdulte" formControlName="clienteleAdulte">
+            Adulte
+        </label>
+    </div>
+
+    <div class="col-md mb-3">
+        <label for="nombreParticipants">nombre participants</label>
+        <input type="number" class="form-control" id="nombreParticipants" formControlName="nombreParticipants">
+    </div>
+
+    <div class="col-md mb-3">
+        <label for="nombreNouveauxAdeptes">nombre nouveaux adeptes</label>
+        <input type="number" class="form-control" id="nombreNouveauxAdeptes" formControlName="nombreNouveauxAdeptes">
+    </div>
+
+    <h5>Structure</h5>
+
+    <div class="col-md mb-3">
+        <label for="structureScolaire">
+            <input type="checkbox" id="structureScolaire" formControlName="structureScolaire">
+            Scolaire
+        </label>
+    </div>
+
+    <div class="col-md mb-3">
+        <label for="structureAssociation">
+            <input type="checkbox" id="structureAssociation" formControlName="structureAssociation">
+            Association
+        </label>
+    </div>
+
+    <div class="col-md mb-3">
+        <label for="structureOuvertPublic">
+            <input type="checkbox" id="structureOuvertPublic" formControlName="structureOuvertPublic">
+            Ouvert au public
+        </label>
+    </div>
+
+    <div class="col-md mb-3">
+        <label for="structureAutre">
+            <input type="checkbox" id="structureAutre" formControlName="structureAutre">
+            Autre
+        </label>
+
+        <input *ngIf="form.controls.structureAutre.value" type="text" class="form-control" formControlName="structureAutreDescr">
+    </div>
+
+    <div class="col-md">
+        <button type="button" class="col-md-6 btn btn-primary" (click)="back()">Précedant</button>
+        <button type="submit" class="col-md-6 btn btn-primary">Suivant</button>
+    </div>
+</form>
